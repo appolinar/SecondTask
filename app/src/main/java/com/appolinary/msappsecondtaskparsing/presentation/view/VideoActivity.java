@@ -17,7 +17,7 @@ public class VideoActivity extends AppCompatActivity {
     private static final String VIDEO_URL = "video url reference";
 
     private VideoView videoView;
-    private int mCurrentPosition = 0;
+    private int currentPosition = 0;
     private static final String PLAYBACK_TIME = "play_time";
 
     private TextView bufferingTextView;
@@ -37,7 +37,7 @@ public class VideoActivity extends AppCompatActivity {
         bufferingTextView = findViewById(R.id.buffering_textview);
 
         if (savedInstanceState != null) {//TODO current position of player - replace to restoreInstanceState?
-            mCurrentPosition = savedInstanceState.getInt(PLAYBACK_TIME);
+            currentPosition = savedInstanceState.getInt(PLAYBACK_TIME);
         }
 
 
@@ -77,8 +77,8 @@ public class VideoActivity extends AppCompatActivity {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 hideProgress();
-                if (mCurrentPosition > 0) {
-                    videoView.seekTo(mCurrentPosition);
+                if (currentPosition > 0) {
+                    videoView.seekTo(currentPosition);
                 } else {
                     videoView.seekTo(1);
                 }

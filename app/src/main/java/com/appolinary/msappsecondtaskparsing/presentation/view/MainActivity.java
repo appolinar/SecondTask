@@ -74,4 +74,5 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     }
 
     //TODO TUT указать в readme что для видео - только кнопка кликабельна, для webview - весь item
+    //TODO TUT - указать что поворот экрана не ставился целью поддерживаться, но он и не зафиксирован в только вертикальном положении
 }

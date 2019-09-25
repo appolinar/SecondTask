@@ -2,5 +2,5 @@ package com.appolinary.msappsecondtaskparsing.presentation.view;
 
 public interface IMainActivity {
     void showProgress();
-    void hideProgress();
+    void hideProgressAndShowRV();
 }

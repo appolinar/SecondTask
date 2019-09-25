@@ -37,21 +37,6 @@ public class LinkModel {
     @Expose
     public Author author;
 
-    @Override
-    public String toString() {
-        return "LinkModel{" +
-                "type=" + type +
-                ", title='" + title + '\'' +
-                ", summary='" + summary + '\'' +
-                ", id='" + id + '\'' +
-                ", published='" + published + '\'' +
-                ", updated='" + updated + '\'' +
-                ", content=" + content +
-                ", link=" + link +
-                ", mediaGroup=" + mediaGroup +
-                ", author=" + author +
-                '}';
-    }
 
     public class Author {
         @SerializedName("name")

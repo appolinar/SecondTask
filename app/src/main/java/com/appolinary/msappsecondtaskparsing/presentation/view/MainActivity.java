@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     }
 
     @Override
-    public void hideProgress() {
+    public void hideProgressAndShowRV() {
         progressBar.setVisibility(View.INVISIBLE);
         recyclerView.setVisibility(View.VISIBLE);
 

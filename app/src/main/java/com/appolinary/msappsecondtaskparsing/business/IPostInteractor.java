@@ -1,5 +1,6 @@
 package com.appolinary.msappsecondtaskparsing.business;
 
+import com.appolinary.msappsecondtaskparsing.data.BaseModel;
 import com.appolinary.msappsecondtaskparsing.data.LinkModel;
 import com.appolinary.msappsecondtaskparsing.data.VideoModel;
 
@@ -8,6 +9,8 @@ import java.util.List;
 public interface IPostInteractor {
     void loadVideoData(OnVideoListDownloadFinishedListener videoListDownloadFinishedListener);
     void loadLinkData(OnLinkListDownloadFinishedListener linkListDownloadFinishedListener);
+
+    List<BaseModel> getTotalList();
 
     interface OnLinkListDownloadFinishedListener {
         void onLinkListFinished(List<LinkModel> links);

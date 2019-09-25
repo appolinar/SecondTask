@@ -10,13 +10,17 @@ import android.widget.ProgressBar;
 import com.appolinary.msappsecondtaskparsing.R;
 import com.appolinary.msappsecondtaskparsing.business.IPostInteractor;
 import com.appolinary.msappsecondtaskparsing.business.PostInteractor;
+import com.appolinary.msappsecondtaskparsing.data.BaseModel;
 import com.appolinary.msappsecondtaskparsing.presentation.presenter.IPostPresenter;
 import com.appolinary.msappsecondtaskparsing.presentation.presenter.PostPresenter;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements IMainActivity{
     ProgressBar progressBar;
     RecyclerView recyclerView;
     IPostPresenter presenter;
+    PostAdapter adapter;
 
 
 
@@ -35,6 +39,10 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
 
 
 
+
+
+
+
     }
 
     @Override
@@ -44,8 +52,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     }
 
     @Override
-    public void hideProgressAndShowRV() {
+    public void hideProgressAndShowRV(List<BaseModel> totalList) {
         progressBar.setVisibility(View.INVISIBLE);
+        adapter = new PostAdapter();
+        recyclerView.setAdapter(adapter);
+
         recyclerView.setVisibility(View.VISIBLE);
 
     }

@@ -1,0 +1,52 @@
+package com.appolinary.msappsecondtaskparsing.business;
+
+import android.util.Log;
+
+import com.appolinary.msappsecondtaskparsing.data.LinkList;
+import com.appolinary.msappsecondtaskparsing.data.LinkModel;
+import com.appolinary.msappsecondtaskparsing.network.NetworkService;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+public class PostInteractor implements IPostInteractor {
+    private static final String TAG = "MSAPP";
+//    List<VideoModel> videoList;
+    List<LinkModel> linkList;
+
+    @Override
+    public void loadVideoData() {
+
+
+    }
+
+    @Override
+    public void loadLinkData() {
+        NetworkService.getInstance()
+                .getJSONApi()
+                .getLinkData()
+                .enqueue(new Callback<LinkList>() {
+                    @Override
+                    public void onResponse(Call<LinkList> call, Response<LinkList> response) {
+                        Log.d(TAG, "onResponse: response.body() == null? " + (response.body() == null));
+
+                        if(response.body()!=null)
+                            Log.d(TAG, "onResponse: response.body() = " + response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<LinkList> call, Throwable t) {
+                        Log.d(TAG, "onFailure:");
+                        t.printStackTrace();
+
+                    }
+                });
+
+    }
+}

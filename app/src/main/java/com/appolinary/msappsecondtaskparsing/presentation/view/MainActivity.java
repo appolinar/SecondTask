@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         totalList.sort(new Comparator<BaseModel>() {
             @Override
             public int compare(BaseModel o1, BaseModel o2) {//sorting by year
-                return o2.compao1.getReleaseYear();
+                return o1.getTitle().compareTo(o2.getTitle());
             }
         });
         adapter = new PostAdapter2(totalList, getApplicationContext());

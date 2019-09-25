@@ -1,6 +1,7 @@
 package com.appolinary.msappsecondtaskparsing.presentation.presenter;
 
 import com.appolinary.msappsecondtaskparsing.business.IPostInteractor;
+import com.appolinary.msappsecondtaskparsing.data.BaseModel;
 import com.appolinary.msappsecondtaskparsing.data.LinkModel;
 import com.appolinary.msappsecondtaskparsing.data.VideoModel;
 import com.appolinary.msappsecondtaskparsing.presentation.view.IMainActivity;
@@ -13,6 +14,7 @@ public class PostPresenter implements IPostPresenter,
     IMainActivity mainActivity;
     IPostInteractor interactor;
     boolean anotherDataLoaded = false;
+    List<BaseModel> totalList;
 
     public PostPresenter(IMainActivity mainActivity, IPostInteractor interactor) {
         this.mainActivity = mainActivity;

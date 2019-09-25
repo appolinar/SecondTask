@@ -77,6 +77,7 @@ public class PostAdapter2 extends RecyclerView.Adapter {
                     .into(((VideoViewHolder) holder).videoImage);//TODO ????
 
         } else if (holder instanceof LinkViewHolder) {
+            ((LinkViewHolder) holder).get
             ((LinkViewHolder) holder).linkTitle
                     .setText((totalList.get(position)).getTitle());
             ((LinkViewHolder) holder).linkSummary
@@ -120,6 +121,7 @@ public class PostAdapter2 extends RecyclerView.Adapter {
     }
 
     public static class LinkViewHolder extends RecyclerView.ViewHolder {
+        public
         public TextView linkTitle;
         public TextView linkSummary;
         public ImageView linkImage;

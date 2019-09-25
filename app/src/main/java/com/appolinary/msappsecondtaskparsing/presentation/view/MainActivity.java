@@ -3,6 +3,7 @@ package com.appolinary.msappsecondtaskparsing.presentation.view;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -15,6 +16,7 @@ import com.appolinary.msappsecondtaskparsing.data.BaseModel;
 import com.appolinary.msappsecondtaskparsing.presentation.presenter.IPostPresenter;
 import com.appolinary.msappsecondtaskparsing.presentation.presenter.PostPresenter;
 
+import java.net.URL;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements IMainActivity{
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         IPostInteractor interactor = new PostInteractor();
         presenter = new PostPresenter(this, interactor);
         presenter.loadData();
+
 
 
 

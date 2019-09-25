@@ -9,6 +9,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -27,17 +28,23 @@ public class PostInteractor implements IPostInteractor {
     }
 
     @Override
-    public void loadLinkData() {
+    public void loadLinkData(final OnLinkListDownloadFinishedListener linkListDownloadFinishedListener) {
         NetworkService.getInstance()
                 .getJSONApi()
                 .getLinkData()
                 .enqueue(new Callback<LinkList>() {
                     @Override
                     public void onResponse(Call<LinkList> call, Response<LinkList> response) {
-                        Log.d(TAG, "onResponse: response.body() == null? " + (response.body() == null));
-
-                        if(response.body()!=null)
+                        if(response.body()!=null) {
                             Log.d(TAG, "onResponse: response.body() = " + response.body());
+                            List<LinkModel> resultList = new ArrayList<>();
+                            for (LinkModel linkModel : response.body().getLinks()) {
+                                resultList.add(linkModel);
+                            }
+                            linkList = resultList;
+                            linkListDownloadFinishedListener.onFinished(resultList);
+
+                        }
                     }
 
                     @Override

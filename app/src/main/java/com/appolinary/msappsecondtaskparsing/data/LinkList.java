@@ -8,6 +8,10 @@ public class LinkList {
     @SerializedName("entry")
     private List<LinkModel> links;
 
+    public List<LinkModel> getLinks() {
+        return links;
+    }
+
     @Override
     public String toString() {
         return "LinkList{" +

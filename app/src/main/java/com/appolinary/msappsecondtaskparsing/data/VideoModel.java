@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class VideoModel extends BaseModel implements View.OnClickListener {
-    private static final String URL = "url reference";
+    private static final String VIDEO_URL = "video url reference";
 
     @SerializedName("content")
     @Expose
@@ -31,7 +31,7 @@ public class VideoModel extends BaseModel implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(v.getContext(), VideoActivity.class);
-        intent.putExtra(URL, this.getContent().getSrc());//passing url to video_activity
+        intent.putExtra(VIDEO_URL, this.getContent().getSrc());//passing url to video_activity
         v.getContext().startActivity(intent);
     }
 

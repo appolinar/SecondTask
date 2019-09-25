@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -77,7 +78,8 @@ public class PostAdapter2 extends RecyclerView.Adapter {
                     .into(((VideoViewHolder) holder).videoImage);//TODO ????
 
         } else if (holder instanceof LinkViewHolder) {
-            ((LinkViewHolder) holder).get
+            ((LinkViewHolder) holder).linkRelativeLayout
+                    .setOnClickListener(((LinkModel) totalList.get(position)).getOnClickListener());//very brave experiment...
             ((LinkViewHolder) holder).linkTitle
                     .setText((totalList.get(position)).getTitle());
             ((LinkViewHolder) holder).linkSummary
@@ -86,7 +88,7 @@ public class PostAdapter2 extends RecyclerView.Adapter {
                     .load(getImageUrlByKey(totalList.get(position)))
                     .placeholder(R.drawable.ic_launcher_foreground)
                     .error(R.drawable.ic_launcher_foreground)
-                    .into(((LinkViewHolder) holder).linkImage);//TODO ????
+                    .into(((LinkViewHolder) holder).linkImage);//TODO ???? will it work? really?
         }
     }
 
@@ -121,13 +123,14 @@ public class PostAdapter2 extends RecyclerView.Adapter {
     }
 
     public static class LinkViewHolder extends RecyclerView.ViewHolder {
-        public
+        public RelativeLayout linkRelativeLayout;
         public TextView linkTitle;
         public TextView linkSummary;
         public ImageView linkImage;
 
         public LinkViewHolder(View itemView) {
             super(itemView);
+            linkRelativeLayout = itemView.findViewById(R.id.link_relative);
             linkTitle = itemView.findViewById(R.id.link_title);
             linkSummary = itemView.findViewById(R.id.link_summary);
             linkImage = itemView.findViewById(R.id.link_image);

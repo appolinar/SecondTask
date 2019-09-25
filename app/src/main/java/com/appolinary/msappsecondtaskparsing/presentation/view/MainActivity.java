@@ -1,6 +1,7 @@
 package com.appolinary.msappsecondtaskparsing.presentation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -60,8 +61,10 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
         progressBar.setVisibility(View.INVISIBLE);
         adapter = new PostAdapter2(totalList, getApplicationContext());
         recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         recyclerView.setVisibility(View.VISIBLE);
-
     }
+
+    //TODO TUT нужно будет отрегулировать красоту в item_layout а то поначалу набросал, а это важный пункт
 }

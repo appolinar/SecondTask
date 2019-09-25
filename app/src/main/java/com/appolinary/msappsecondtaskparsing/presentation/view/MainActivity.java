@@ -18,6 +18,7 @@ import com.appolinary.msappsecondtaskparsing.presentation.presenter.IPostPresent
 import com.appolinary.msappsecondtaskparsing.presentation.presenter.PostPresenter;
 
 import java.net.URL;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements IMainActivity{
@@ -59,6 +60,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     @Override
     public void hideProgressAndShowRV(List<BaseModel> totalList) {
         progressBar.setVisibility(View.INVISIBLE);
+        totalList.sort(new Comparator<BaseModel>() {
+            @Override
+            public int compare(BaseModel o1, BaseModel o2) {//sorting by year
+                return o2.compao1.getReleaseYear();
+            }
+        });
         adapter = new PostAdapter2(totalList, getApplicationContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

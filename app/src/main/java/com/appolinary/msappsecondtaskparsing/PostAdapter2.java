@@ -16,6 +16,7 @@ import com.appolinary.msappsecondtaskparsing.data.LinkModel;
 import com.appolinary.msappsecondtaskparsing.data.VideoModel;
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PostAdapter2 extends RecyclerView.Adapter {
@@ -88,7 +89,7 @@ public class PostAdapter2 extends RecyclerView.Adapter {
                     .load(getImageUrlByKey(totalList.get(position)))
                     .placeholder(R.drawable.ic_launcher_foreground)
                     .error(R.drawable.ic_launcher_foreground)
-                    .into(((LinkViewHolder) holder).linkImage);//TODO ???? will it work? really?
+                    .into(((LinkViewHolder) holder).linkImage);
         }
     }
 
@@ -135,5 +136,11 @@ public class PostAdapter2 extends RecyclerView.Adapter {
             linkSummary = itemView.findViewById(R.id.link_summary);
             linkImage = itemView.findViewById(R.id.link_image);
         }
+    }
+
+    public void updateList(List<BaseModel> newList){
+        totalList = new ArrayList<>();
+        totalList.addAll(newList);
+        notifyDataSetChanged();
     }
 }

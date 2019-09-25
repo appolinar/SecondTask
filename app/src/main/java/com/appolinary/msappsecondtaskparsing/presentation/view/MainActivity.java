@@ -67,4 +67,5 @@ public class MainActivity extends AppCompatActivity implements IMainActivity{
     }
 
     //TODO TUT нужно будет отрегулировать красоту в item_layout а то поначалу набросал, а это важный пункт
+    //TODO TUT указать в readme что для видео - только кнопка кликабельна, для webview - весь item
 }

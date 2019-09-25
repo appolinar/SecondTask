@@ -4,10 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
-import android.webkit.URLUtil;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,11 +16,11 @@ public class VideoActivity extends AppCompatActivity {
     String urlVideo;
     private static final String VIDEO_URL = "video url reference";
 
-    private VideoView mVideoView;
+    private VideoView videoView;
     private int mCurrentPosition = 0;
     private static final String PLAYBACK_TIME = "play_time";
 
-    private TextView mBufferingTextView;
+    private TextView bufferingTextView;
 
 
 
@@ -36,16 +33,17 @@ public class VideoActivity extends AppCompatActivity {
         urlVideo = getIntent().getStringExtra(VIDEO_URL);
 
 
-        mVideoView = findViewById(R.id.videoview);
-        mBufferingTextView = findViewById(R.id.buffering_textview);
+        videoView = findViewById(R.id.videoview);
+        bufferingTextView = findViewById(R.id.buffering_textview);
 
         if (savedInstanceState != null) {//TODO current position of player - replace to restoreInstanceState?
             mCurrentPosition = savedInstanceState.getInt(PLAYBACK_TIME);
         }
 
+
         MediaController controller = new MediaController(this);
-        controller.setMediaPlayer(mVideoView);
-        mVideoView.setMediaController(controller);
+        controller.setMediaPlayer(videoView);
+        videoView.setMediaController(controller);
     }
 
     @Override
@@ -62,7 +60,7 @@ public class VideoActivity extends AppCompatActivity {
 
     @Override
     protected void onPause() {
-        mVideoView.pause();
+        videoView.pause();
         super.onPause();
     }
 
@@ -70,51 +68,53 @@ public class VideoActivity extends AppCompatActivity {
         showProgress();
 
         Uri videoUri = Uri.parse(urlVideo);//TODO need to catch exception?
+        //TODO url is valid? check video url for different posts
+        //TODO video pulled in height? no?
 
-        mVideoView.setVideoURI(videoUri);
+        videoView.setVideoURI(videoUri);
 
-        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
                 hideProgress();
                 if (mCurrentPosition > 0) {
-                    mVideoView.seekTo(mCurrentPosition);
+                    videoView.seekTo(mCurrentPosition);
                 } else {
-                    mVideoView.seekTo(1);
+                    videoView.seekTo(1);
                 }
-                mVideoView.start();
+                videoView.start();
 
             }
         });
 
-        mVideoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
                 Toast.makeText(VideoActivity.this, "video finished", Toast.LENGTH_LONG).show();
-                mVideoView.seekTo(1);
+                videoView.seekTo(1);
             }
         });
     }
 
     private void releasePlayer() {
-        mVideoView.stopPlayback();
+        videoView.stopPlayback();
     }
 
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(PLAYBACK_TIME, mVideoView.getCurrentPosition());
+        outState.putInt(PLAYBACK_TIME, videoView.getCurrentPosition());
     }
 
 
     public void showProgress() {
-        mBufferingTextView.setVisibility(VideoView.VISIBLE);
+        bufferingTextView.setVisibility(VideoView.VISIBLE);
 
     }
 
     public void hideProgress() {
-        mBufferingTextView.setVisibility(VideoView.INVISIBLE);
+        bufferingTextView.setVisibility(VideoView.INVISIBLE);
 
     }
 

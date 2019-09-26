@@ -22,10 +22,6 @@ Clone this repository and import into Android Studio
 
 No tests
 
-## Deployment
-
-Add additional notes about how to deploy this on a live system
-
 ## Built With
 
 * Retrofit - REST-client

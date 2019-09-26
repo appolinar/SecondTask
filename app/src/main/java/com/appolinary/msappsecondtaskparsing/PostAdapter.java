@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -123,7 +124,7 @@ public class PostAdapter extends RecyclerView.Adapter {
     }
 
     private static class LinkViewHolder extends RecyclerView.ViewHolder {
-        private RelativeLayout linkRelativeLayout;
+        private LinearLayout linkRelativeLayout;
         private TextView linkTitle;
         private TextView linkSummary;
         private ImageView linkImage;

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MSAppSecondTaskParsing</string>
+    <string name="app_name">MSAppSecondTask</string>
     <string name="play">PLAY</string>
     <string name="search">Search</string>
     <string name="preview">Preview</string>

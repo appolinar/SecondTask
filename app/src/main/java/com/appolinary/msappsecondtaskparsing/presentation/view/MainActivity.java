@@ -1,6 +1,7 @@
 package com.appolinary.msappsecondtaskparsing.presentation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Se
 
         IPostInteractor interactor = new PostInteractor();
         presenter = new PostPresenter(this, interactor);
+
+
         presenter.loadData();
     }
 
@@ -60,7 +63,13 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Se
         baseModels = totalList;
         adapter = new PostAdapter(totalList, getApplicationContext());
         recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+
+    //divider for recyclerview
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+                layoutManager.getOrientation());
+        recyclerView.addItemDecoration(dividerItemDecoration);
 
         recyclerView.setVisibility(View.VISIBLE);
     }

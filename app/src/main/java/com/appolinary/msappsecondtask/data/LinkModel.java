@@ -1,9 +1,9 @@
-package com.appolinary.msappsecondtaskparsing.data;
+package com.appolinary.msappsecondtask.data;
 
 import android.content.Intent;
 import android.view.View;
 
-import com.appolinary.msappsecondtaskparsing.presentation.view.WebViewActivity;
+import com.appolinary.msappsecondtask.presentation.view.WebViewActivity;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

@@ -1,8 +1,8 @@
-package com.appolinary.msappsecondtaskparsing.business;
+package com.appolinary.msappsecondtask.business;
 
-import com.appolinary.msappsecondtaskparsing.data.BaseModel;
-import com.appolinary.msappsecondtaskparsing.data.LinkModel;
-import com.appolinary.msappsecondtaskparsing.data.VideoModel;
+import com.appolinary.msappsecondtask.data.BaseModel;
+import com.appolinary.msappsecondtask.data.LinkModel;
+import com.appolinary.msappsecondtask.data.VideoModel;
 
 import java.util.List;
 

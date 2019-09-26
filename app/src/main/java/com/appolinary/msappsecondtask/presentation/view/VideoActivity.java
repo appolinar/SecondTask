@@ -1,4 +1,4 @@
-package com.appolinary.msappsecondtaskparsing.presentation.view;
+package com.appolinary.msappsecondtask.presentation.view;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-import com.appolinary.msappsecondtaskparsing.R;
+import com.appolinary.msappsecondtask.R;
 
 public class VideoActivity extends AppCompatActivity {
     private static final String TAG = "MSAPP";

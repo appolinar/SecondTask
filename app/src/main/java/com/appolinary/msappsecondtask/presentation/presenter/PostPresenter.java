@@ -1,9 +1,9 @@
-package com.appolinary.msappsecondtaskparsing.presentation.presenter;
+package com.appolinary.msappsecondtask.presentation.presenter;
 
-import com.appolinary.msappsecondtaskparsing.business.IPostInteractor;
-import com.appolinary.msappsecondtaskparsing.data.LinkModel;
-import com.appolinary.msappsecondtaskparsing.data.VideoModel;
-import com.appolinary.msappsecondtaskparsing.presentation.view.IMainActivity;
+import com.appolinary.msappsecondtask.business.IPostInteractor;
+import com.appolinary.msappsecondtask.data.LinkModel;
+import com.appolinary.msappsecondtask.data.VideoModel;
+import com.appolinary.msappsecondtask.presentation.view.IMainActivity;
 
 import java.util.List;
 

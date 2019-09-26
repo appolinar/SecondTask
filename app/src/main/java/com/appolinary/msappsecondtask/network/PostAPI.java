@@ -1,7 +1,7 @@
-package com.appolinary.msappsecondtaskparsing.network;
+package com.appolinary.msappsecondtask.network;
 
-import com.appolinary.msappsecondtaskparsing.data.LinkList;
-import com.appolinary.msappsecondtaskparsing.data.VideoList;
+import com.appolinary.msappsecondtask.data.LinkList;
+import com.appolinary.msappsecondtask.data.VideoList;
 import retrofit2.Call;
 import retrofit2.http.GET;
 

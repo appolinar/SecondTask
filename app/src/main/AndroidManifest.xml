@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.appolinary.msappsecondtaskparsing">
+    package="com.appolinary.msappsecondtask">
 
     <application
         android:allowBackup="true"
@@ -12,9 +12,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".presentation.view.WebViewActivity"></activity>
-        <activity android:name=".presentation.view.VideoActivity" />
-        <activity android:name=".presentation.view.MainActivity">
+        <activity android:name="com.appolinary.msappsecondtask.presentation.view.WebViewActivity"></activity>
+        <activity android:name="com.appolinary.msappsecondtask.presentation.view.VideoActivity" />
+        <activity android:name="com.appolinary.msappsecondtask.presentation.view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

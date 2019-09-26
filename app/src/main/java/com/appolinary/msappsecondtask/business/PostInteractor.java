@@ -1,13 +1,13 @@
-package com.appolinary.msappsecondtaskparsing.business;
+package com.appolinary.msappsecondtask.business;
 
 import android.util.Log;
 
-import com.appolinary.msappsecondtaskparsing.data.BaseModel;
-import com.appolinary.msappsecondtaskparsing.data.LinkList;
-import com.appolinary.msappsecondtaskparsing.data.LinkModel;
-import com.appolinary.msappsecondtaskparsing.data.VideoList;
-import com.appolinary.msappsecondtaskparsing.data.VideoModel;
-import com.appolinary.msappsecondtaskparsing.network.NetworkService;
+import com.appolinary.msappsecondtask.data.BaseModel;
+import com.appolinary.msappsecondtask.data.LinkList;
+import com.appolinary.msappsecondtask.data.LinkModel;
+import com.appolinary.msappsecondtask.data.VideoList;
+import com.appolinary.msappsecondtask.data.VideoModel;
+import com.appolinary.msappsecondtask.network.NetworkService;
 
 import java.util.ArrayList;
 import java.util.List;

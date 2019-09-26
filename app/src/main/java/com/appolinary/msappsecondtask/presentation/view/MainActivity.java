@@ -1,4 +1,4 @@
-package com.appolinary.msappsecondtaskparsing.presentation.view;
+package com.appolinary.msappsecondtask.presentation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -11,13 +11,13 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 
-import com.appolinary.msappsecondtaskparsing.PostAdapter;
-import com.appolinary.msappsecondtaskparsing.R;
-import com.appolinary.msappsecondtaskparsing.business.IPostInteractor;
-import com.appolinary.msappsecondtaskparsing.business.PostInteractor;
-import com.appolinary.msappsecondtaskparsing.data.BaseModel;
-import com.appolinary.msappsecondtaskparsing.presentation.presenter.IPostPresenter;
-import com.appolinary.msappsecondtaskparsing.presentation.presenter.PostPresenter;
+import com.appolinary.msappsecondtask.PostAdapter;
+import com.appolinary.msappsecondtask.R;
+import com.appolinary.msappsecondtask.business.IPostInteractor;
+import com.appolinary.msappsecondtask.business.PostInteractor;
+import com.appolinary.msappsecondtask.data.BaseModel;
+import com.appolinary.msappsecondtask.presentation.presenter.IPostPresenter;
+import com.appolinary.msappsecondtask.presentation.presenter.PostPresenter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

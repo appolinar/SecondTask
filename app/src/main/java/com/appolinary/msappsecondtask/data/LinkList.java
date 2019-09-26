@@ -1,4 +1,4 @@
-package com.appolinary.msappsecondtaskparsing.data;
+package com.appolinary.msappsecondtask.data;
 
 import com.google.gson.annotations.SerializedName;
 

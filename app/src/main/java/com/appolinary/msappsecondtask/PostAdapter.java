@@ -1,4 +1,4 @@
-package com.appolinary.msappsecondtaskparsing;
+package com.appolinary.msappsecondtask;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,15 +7,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.appolinary.msappsecondtaskparsing.data.BaseModel;
-import com.appolinary.msappsecondtaskparsing.data.LinkModel;
-import com.appolinary.msappsecondtaskparsing.data.VideoModel;
+import com.appolinary.msappsecondtask.data.BaseModel;
+import com.appolinary.msappsecondtask.data.LinkModel;
+import com.appolinary.msappsecondtask.data.VideoModel;
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;

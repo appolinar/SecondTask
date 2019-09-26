@@ -1,4 +1,4 @@
-package com.appolinary.msappsecondtaskparsing.network;
+package com.appolinary.msappsecondtask.network;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

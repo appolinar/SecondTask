@@ -1,4 +1,4 @@
-package com.appolinary.msappsecondtaskparsing.presentation.view;
+package com.appolinary.msappsecondtask.presentation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.appolinary.msappsecondtaskparsing.R;
+import com.appolinary.msappsecondtask.R;
 
 public class WebViewActivity extends AppCompatActivity {
     private static final String WEBVIEW_URL = "url for webview";

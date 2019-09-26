@@ -1,6 +1,6 @@
-package com.appolinary.msappsecondtaskparsing.presentation.view;
+package com.appolinary.msappsecondtask.presentation.view;
 
-import com.appolinary.msappsecondtaskparsing.data.BaseModel;
+import com.appolinary.msappsecondtask.data.BaseModel;
 
 import java.util.List;
 

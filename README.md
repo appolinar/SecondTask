@@ -16,7 +16,15 @@ Filtering executes dynamically with every character that is input by user
 
 ### Installing
 
-Clone this repository and import into Android Studio
+Clone this repository and import into **Android Studio**
+```bash
+git clone https://github.com/appolinar/SecondTask.git
+```
+
+## Generating APK
+From Android Studio:  
+1. ***Build*** menu  
+2. ***Generate APK...***  
 
 ## Running the tests
 

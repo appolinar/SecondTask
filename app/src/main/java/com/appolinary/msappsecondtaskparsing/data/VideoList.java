@@ -12,11 +12,6 @@ public class VideoList {
         return videos;
     }
 
-    @Override
-    public String toString() {
-        return "VideoList{" +
-                "videos = " + videos +
-                '}';
-    }
+
 }
 

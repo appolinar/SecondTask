@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.appolinary.msappsecondtaskparsing.data.BaseModel;
@@ -19,9 +20,8 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostAdapter2 extends RecyclerView.Adapter {
+public class PostAdapter extends RecyclerView.Adapter {
     private static final String KEY_FOR_IMAGE = "image_base";
-    private static final String URL = "url reference";
 
     private List<BaseModel> totalList;
     private Context context;
@@ -30,7 +30,7 @@ public class PostAdapter2 extends RecyclerView.Adapter {
     private final int LINK = 1;
 
 
-    public PostAdapter2(List<BaseModel> totalList, Context context) {
+    public PostAdapter(List<BaseModel> totalList, Context context) {
         this.totalList = totalList;
         this.context = context;
     }
@@ -46,23 +46,22 @@ public class PostAdapter2 extends RecyclerView.Adapter {
         }
     }
 
+    @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         if (viewType == VIDEO) {
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.video_item, parent, false);
             return new VideoViewHolder(view);
-        } else if (viewType == LINK) {
+        } else /*if (viewType == LINK)*/ {
             View view = LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.link_item, parent, false);
             return new LinkViewHolder(view);
-        } else {
-            return null;
         }
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof VideoViewHolder) {
 
             ((VideoViewHolder) holder).button
@@ -76,7 +75,7 @@ public class PostAdapter2 extends RecyclerView.Adapter {
                     .load(getImageUrlByKey(totalList.get(position)))
                     .placeholder(R.drawable.ic_launcher_foreground)
                     .error(R.drawable.ic_launcher_foreground)
-                    .into(((VideoViewHolder) holder).videoImage);//TODO ????
+                    .into(((VideoViewHolder) holder).videoImage);
 
         } else if (holder instanceof LinkViewHolder) {
             ((LinkViewHolder) holder).linkRelativeLayout
@@ -108,13 +107,13 @@ public class PostAdapter2 extends RecyclerView.Adapter {
         return totalList.size();
     }
 
-    public static class VideoViewHolder extends RecyclerView.ViewHolder {
+    private static class VideoViewHolder extends RecyclerView.ViewHolder {
         private Button button;
         private ImageView videoImage;
         private TextView videoTitle;
         private TextView videoSummary;
 
-        public VideoViewHolder(View itemView) {
+        private VideoViewHolder(View itemView) {
             super(itemView);
             button = itemView.findViewById(R.id.video_button);
             videoImage = itemView.findViewById(R.id.video_image);
@@ -123,13 +122,13 @@ public class PostAdapter2 extends RecyclerView.Adapter {
         }
     }
 
-    public static class LinkViewHolder extends RecyclerView.ViewHolder {
-        public RelativeLayout linkRelativeLayout;
-        public TextView linkTitle;
-        public TextView linkSummary;
-        public ImageView linkImage;
+    private static class LinkViewHolder extends RecyclerView.ViewHolder {
+        private RelativeLayout linkRelativeLayout;
+        private TextView linkTitle;
+        private TextView linkSummary;
+        private ImageView linkImage;
 
-        public LinkViewHolder(View itemView) {
+        private LinkViewHolder(View itemView) {
             super(itemView);
             linkRelativeLayout = itemView.findViewById(R.id.link_relative);
             linkTitle = itemView.findViewById(R.id.link_title);
@@ -138,9 +137,28 @@ public class PostAdapter2 extends RecyclerView.Adapter {
         }
     }
 
-    public void updateList(List<BaseModel> newList){
+    public void updateList(List<BaseModel> newList) {
         totalList = new ArrayList<>();
         totalList.addAll(newList);
         notifyDataSetChanged();
     }
+
+//    @Override
+//    public boolean onQueryTextSubmit(String query) {
+//        return false;
+//    }
+//
+//    @Override
+//    public boolean onQueryTextChange(String newText) {
+//        String userInput = newText.toLowerCase();
+//        List<BaseModel> newList = new ArrayList<>();
+//
+//        for(BaseModel baseModel : baseModels){
+//            if(baseModel.getTitle().toLowerCase().contains(userInput)){
+//                newList.add(baseModel);
+//            }
+//        }
+//        adapter.updateList(newList);
+//        return true;
+//    }
 }

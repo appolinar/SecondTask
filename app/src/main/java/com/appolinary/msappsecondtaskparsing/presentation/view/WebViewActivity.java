@@ -23,13 +23,13 @@ public class WebViewActivity extends AppCompatActivity {
         String urlWebview = getIntent().getStringExtra(WEBVIEW_URL);
         webView = findViewById(R.id.web_view);
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.setWebViewClient(new MyWebViewClient());
+        webView.setWebViewClient(new AppWebViewClient());
 
         webView.loadUrl(urlWebview);
     }
     //if to click any links inside webview then it will be opened in default browser
-    //MyWebViewClient - fixes it
-    private class MyWebViewClient extends WebViewClient {
+    //AppWebViewClient - fixes it
+    private class AppWebViewClient extends WebViewClient {
         @TargetApi(Build.VERSION_CODES.N)
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
@@ -37,11 +37,11 @@ public class WebViewActivity extends AppCompatActivity {
             return true;
         }
 
-        @Override//for old devices
-        public boolean shouldOverrideUrlLoading(WebView view, String url) {
-            view.loadUrl(url);
-            return true;
-        }
+//        @Override//for old devices
+//        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+//            view.loadUrl(url);
+//            return true;
+//        }
     }
 
     @Override

@@ -18,11 +18,8 @@ import retrofit2.Response;
 
 public class PostInteractor implements IPostInteractor {
     private static final String TAG = "MSAPP";
-    private List<VideoModel> videoList;
-    private List<LinkModel> linkList;
-    List<BaseModel> totalList = new ArrayList<>();
 
-    //TODO need to make 1 mutual List<BaseModel> and maybe to make 1 method - to dowload data
+    private List<BaseModel> totalList = new ArrayList<>();
 
     @Override
     public List<BaseModel> getTotalList() {
@@ -39,12 +36,8 @@ public class PostInteractor implements IPostInteractor {
                     public void onResponse(Call<VideoList> call, Response<VideoList> response) {
                         if (response.body() != null) {
                             Log.d(TAG, "loadVideoData onResponse: response.body() = " + response.body());
-                            List<VideoModel> resultList = new ArrayList<>();
-                            for (VideoModel videoModel : response.body().getVideos()) {
-                                resultList.add(videoModel);
-                            }
-                            videoList = resultList;
-                            totalList.addAll(resultList);//TODO avoid duplicate datasets
+                            List<VideoModel> resultList = new ArrayList<>(response.body().getVideos());
+                            totalList.addAll(resultList);
                             videoListDownloadFinishedListener.onVideoListFinished(resultList);
                         }
                     }
@@ -68,12 +61,8 @@ public class PostInteractor implements IPostInteractor {
                     public void onResponse(Call<LinkList> call, Response<LinkList> response) {
                         if (response.body() != null) {
                             Log.d(TAG, "loadLinkData onResponse: response.body() = " + response.body());
-                            List<LinkModel> resultList = new ArrayList<>();
-                            for (LinkModel linkModel : response.body().getLinks()) {
-                                resultList.add(linkModel);
-                            }
-                            linkList = resultList;
-                            totalList.addAll(resultList);//TODO avoid duplicate datasets
+                            List<LinkModel> resultList = new ArrayList<>(response.body().getLinks());
+                            totalList.addAll(resultList);
                             linkListDownloadFinishedListener.onLinkListFinished(resultList);
                         }
                     }

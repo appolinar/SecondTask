@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">MSAppSecondTaskParsing</string>
     <string name="play">PLAY</string>
+    <string name="search">Search</string>
+    <string name="preview">Preview</string>
+    <string name="test_title">test title</string>
+    <string name="link_preview">link preview</string>
 </resources>

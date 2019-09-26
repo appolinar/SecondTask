@@ -1,10 +1,12 @@
 package com.appolinary.msappsecondtaskparsing.presentation.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +15,8 @@ import android.widget.VideoView;
 import com.appolinary.msappsecondtaskparsing.R;
 
 public class VideoActivity extends AppCompatActivity {
+    private static final String TAG = "MSAPP";
+
     String urlVideo;
     private static final String VIDEO_URL = "video url reference";
 
@@ -23,7 +27,6 @@ public class VideoActivity extends AppCompatActivity {
     private TextView bufferingTextView;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,19 +34,24 @@ public class VideoActivity extends AppCompatActivity {
 
 
         urlVideo = getIntent().getStringExtra(VIDEO_URL);
-
+        Log.d(TAG, "onCreate: inside videoActivity obtained urlVideo = " + urlVideo);
 
         videoView = findViewById(R.id.videoview);
         bufferingTextView = findViewById(R.id.buffering_textview);
 
-        if (savedInstanceState != null) {//TODO current position of player - replace to restoreInstanceState?
-            currentPosition = savedInstanceState.getInt(PLAYBACK_TIME);
-        }
-
-
         MediaController controller = new MediaController(this);
         controller.setMediaPlayer(videoView);
         videoView.setMediaController(controller);
+        
+        if (savedInstanceState != null) {//restore previous position of player
+            currentPosition = savedInstanceState.getInt(PLAYBACK_TIME);
+        }
+        playVideoFromPosition(currentPosition);
+    }
+
+    private void playVideoFromPosition(int currentPosition) {
+        videoView.seekTo(currentPosition);
+        videoView.start();
     }
 
     @Override
@@ -64,12 +72,27 @@ public class VideoActivity extends AppCompatActivity {
         super.onPause();
     }
 
+//    @Override
+//    protected void onRestart() {
+//        super.onRestart();
+//        play();
+//
+//    }
+//
+//    public void play() {
+//        videoView.stopPlayback();
+//        videoView.requestFocus();
+//        videoView.start();
+//        if (currentPosition != -1) {
+//            videoView.seekTo(currentPosition);
+//        }
+//    }
+
+
     private void initializePlayer() {
         showProgress();
 
-        Uri videoUri = Uri.parse(urlVideo);//TODO need to catch exception?
-        //TODO url is valid? check video url for different posts
-        //TODO video pulled in height? no?
+        Uri videoUri = Uri.parse(urlVideo);//if uri no valid - catch exception?
 
         videoView.setVideoURI(videoUri);
 
@@ -102,9 +125,10 @@ public class VideoActivity extends AppCompatActivity {
 
 
     @Override
-    protected void onSaveInstanceState(Bundle outState) {
+    protected void onSaveInstanceState(@NonNull Bundle outState) {//save position if orientation changed(for example)
         super.onSaveInstanceState(outState);
-        outState.putInt(PLAYBACK_TIME, videoView.getCurrentPosition());
+        if (videoView.isPlaying())
+            outState.putInt(PLAYBACK_TIME, videoView.getCurrentPosition());
     }
 
 

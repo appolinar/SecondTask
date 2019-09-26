@@ -16,9 +16,9 @@ public class LinkModel extends BaseModel implements View.OnClickListener {
 
     @SerializedName("link")
     @Expose
-    public Link link;
+    private Link link;
 
-    public Link getLink() {
+    private Link getLink() {
         return link;
     }
 
@@ -43,9 +43,9 @@ public class LinkModel extends BaseModel implements View.OnClickListener {
         public String type;
         @SerializedName("href")
         @Expose
-        public String href;
+        private String href;
 
-        public String getHref() {
+        private String getHref() {
             return href;
         }
     }

@@ -10,9 +10,9 @@ import java.util.List;
 public class PostPresenter implements IPostPresenter,
         IPostInteractor.OnLinkListDownloadFinishedListener,
         IPostInteractor.OnVideoListDownloadFinishedListener {
-    IMainActivity mainActivity;
-    IPostInteractor interactor;
-    boolean anotherDataLoaded = false;
+    private IMainActivity mainActivity;
+    private IPostInteractor interactor;
+    private boolean anotherDataLoaded = false;
 
     public PostPresenter(IMainActivity mainActivity, IPostInteractor interactor) {
         this.mainActivity = mainActivity;

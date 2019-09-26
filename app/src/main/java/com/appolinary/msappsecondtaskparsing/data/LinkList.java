@@ -12,10 +12,5 @@ public class LinkList {
         return links;
     }
 
-    @Override
-    public String toString() {
-        return "LinkList{" +
-                "links=" + links +
-                '}';
-    }
+
 }

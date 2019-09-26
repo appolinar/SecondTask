@@ -6,6 +6,7 @@
     android:clickable="true"
     android:focusable="true"
     android:orientation="horizontal"
+    android:background="@drawable/blue_gradient"
     android:padding="@dimen/minimalGridStep_8dp">
 
     <LinearLayout
@@ -15,9 +16,6 @@
         android:orientation="vertical"
         android:paddingHorizontal="@dimen/minimalGridStep_8dp"
         android:paddingTop="@dimen/minimalGridStep_8dp">
-
-
-
 
         <ImageView
             android:id="@+id/video_image"

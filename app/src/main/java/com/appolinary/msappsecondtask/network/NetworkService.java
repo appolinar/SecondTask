@@ -3,7 +3,7 @@ package com.appolinary.msappsecondtask.network;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class NetworkService {
+public class NetworkService {//rest client
     private static final String BASE_URL = "http://assets-production.applicaster.com/";
     private static NetworkService networkServiceInstance;
     private Retrofit retrofit;

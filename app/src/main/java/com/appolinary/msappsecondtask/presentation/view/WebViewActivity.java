@@ -10,7 +10,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.appolinary.msappsecondtask.R;
-
+//activity for internet surfing
 public class WebViewActivity extends AppCompatActivity {
     private static final String WEBVIEW_URL = "url for webview";
     private WebView webView;

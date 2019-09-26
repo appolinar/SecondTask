@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class LinkList {
+public class LinkList {//intermediate class - server response before parsing
     @SerializedName("entry")
     private List<LinkModel> links;
 

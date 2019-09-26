@@ -1,6 +1,6 @@
 package com.appolinary.msappsecondtask.business;
 
-import android.util.Log;
+
 
 import com.appolinary.msappsecondtask.data.BaseModel;
 import com.appolinary.msappsecondtask.data.LinkList;
@@ -17,7 +17,6 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PostInteractor implements IPostInteractor {
-    private static final String TAG = "MSAPP";
 
     private List<BaseModel> totalList = new ArrayList<>();
 
@@ -35,7 +34,6 @@ public class PostInteractor implements IPostInteractor {
                     @Override
                     public void onResponse(Call<VideoList> call, Response<VideoList> response) {
                         if (response.body() != null) {
-                            Log.d(TAG, "loadVideoData onResponse: response.body() = " + response.body());
                             List<VideoModel> resultList = new ArrayList<>(response.body().getVideos());
                             totalList.addAll(resultList);
                             videoListDownloadFinishedListener.onVideoListFinished(resultList);
@@ -44,7 +42,6 @@ public class PostInteractor implements IPostInteractor {
 
                     @Override
                     public void onFailure(Call<VideoList> call, Throwable t) {
-                        Log.d(TAG, "loadVideoData onFailure:");
                         t.printStackTrace();
                     }
                 });
@@ -60,7 +57,6 @@ public class PostInteractor implements IPostInteractor {
                     @Override
                     public void onResponse(Call<LinkList> call, Response<LinkList> response) {
                         if (response.body() != null) {
-                            Log.d(TAG, "loadLinkData onResponse: response.body() = " + response.body());
                             List<LinkModel> resultList = new ArrayList<>(response.body().getLinks());
                             totalList.addAll(resultList);
                             linkListDownloadFinishedListener.onLinkListFinished(resultList);
@@ -69,7 +65,6 @@ public class PostInteractor implements IPostInteractor {
 
                     @Override
                     public void onFailure(Call<LinkList> call, Throwable t) {
-                        Log.d(TAG, "loadLinkData onFailure:");
                         t.printStackTrace();
                     }
                 });

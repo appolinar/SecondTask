@@ -6,16 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.appolinary.msappsecondtask.R;
-
+//activity for playing video
 public class VideoActivity extends AppCompatActivity {
-    private static final String TAG = "MSAPP";
 
     String urlVideo;
     private static final String VIDEO_URL = "video url reference";
@@ -34,7 +32,6 @@ public class VideoActivity extends AppCompatActivity {
 
 
         urlVideo = getIntent().getStringExtra(VIDEO_URL);
-        Log.d(TAG, "onCreate: inside videoActivity obtained urlVideo = " + urlVideo);
 
         videoView = findViewById(R.id.videoview);
         bufferingTextView = findViewById(R.id.buffering_textview);

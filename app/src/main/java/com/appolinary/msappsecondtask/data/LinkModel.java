@@ -23,7 +23,7 @@ public class LinkModel extends BaseModel implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v) {//need for clicks inside recyclerview
         Intent intent = new Intent(v.getContext(), WebViewActivity.class);
         intent.putExtra(WEBVIEW_URL, this.getLink().getHref());
         v.getContext().startActivity(intent);
@@ -47,7 +47,7 @@ public class LinkModel extends BaseModel implements View.OnClickListener {
 
         private String getHref() {
             return href;
-        }
+        }//our target reference for link-resources
     }
 
 

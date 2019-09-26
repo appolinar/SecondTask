@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class BaseModel {
+public class BaseModel {//Super class for links and for videos
     @SerializedName("type")
     @Expose
     public Type type;

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+//main activity with recyclerview and search box area
 public class MainActivity extends AppCompatActivity implements IMainActivity, SearchView.OnQueryTextListener {
     ProgressBar progressBar;
     RecyclerView recyclerView;

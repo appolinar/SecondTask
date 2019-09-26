@@ -1,7 +1,6 @@
 package com.appolinary.msappsecondtask.data;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 
 import com.appolinary.msappsecondtask.presentation.view.VideoActivity;
@@ -11,7 +10,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class VideoModel extends BaseModel implements View.OnClickListener {
     private static final String VIDEO_URL = "video url reference";
-    private static final String TAG = "MSAPP";
 
     @SerializedName("content")
     @Expose
@@ -33,7 +31,6 @@ public class VideoModel extends BaseModel implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(v.getContext(), VideoActivity.class);
-        Log.d(TAG, "onClick: inside videoModel url = " + this.getContent().getSrc());
         intent.putExtra(VIDEO_URL, this.getContent().getSrc());//passing url to video_activity
         v.getContext().startActivity(intent);
     }

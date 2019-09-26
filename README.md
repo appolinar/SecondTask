@@ -1,6 +1,8 @@
 # Project Title
 
 Android Coding Assignment.  
+
+### Description
 App which displays a list of posts coming from a JSON feed.  
 App loads posts from JSON URL and displays all the results in a list. The list contains 2 different row types - VIDEO and LINK  
 For VIDEO rows available button PLAY which open a media player to play the item.  
@@ -28,7 +30,7 @@ Add additional notes about how to deploy this on a live system
 * Glide - Image loading library for android
 
 
-## Authors
+## Author
 
 * **Pushkarev Andrey**
 

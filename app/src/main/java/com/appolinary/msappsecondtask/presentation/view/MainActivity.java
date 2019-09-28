@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.TextView;
 
 import com.appolinary.msappsecondtask.PostAdapter;
 import com.appolinary.msappsecondtask.R;
@@ -21,6 +22,9 @@ import com.appolinary.msappsecondtask.presentation.presenter.PostPresenter;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
 
 /**App which displays a list of posts coming from a JSON feed.
 App loads posts from JSON URL and displays all the results in a list. The list contains 2 different row types - VIDEO and LINK
@@ -42,6 +46,7 @@ Filtering executes dynamically with every character that is input by user*/
 public class MainActivity extends AppCompatActivity implements IMainActivity, SearchView.OnQueryTextListener {
     ProgressBar progressBar;
     RecyclerView recyclerView;
+    TextView waitText;
     IPostPresenter presenter;
     PostAdapter adapter;
     List<BaseModel> baseModels = new ArrayList<>();
@@ -53,6 +58,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Se
 
         progressBar = findViewById(R.id.progress);
         recyclerView = findViewById(R.id.recycler);
+        waitText = findViewById(R.id.text_wait);
         recyclerView.setHasFixedSize(true);
 
         IPostInteractor interactor = new PostInteractor();
@@ -64,13 +70,15 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Se
 
     @Override
     public void showProgress() {
-        recyclerView.setVisibility(View.INVISIBLE);
-        progressBar.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(INVISIBLE);
+        progressBar.setVisibility(VISIBLE);
+        waitText.setVisibility(VISIBLE);
     }
 
     @Override
     public void hideProgressAndShowRV(List<BaseModel> totalList) {
-        progressBar.setVisibility(View.INVISIBLE);
+        progressBar.setVisibility(INVISIBLE);
+        waitText.setVisibility(INVISIBLE);
         totalList.sort(new Comparator<BaseModel>() {
             @Override
             public int compare(BaseModel o1, BaseModel o2) {//sorting by title
@@ -88,7 +96,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivity, Se
                 layoutManager.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
-        recyclerView.setVisibility(View.VISIBLE);
+        recyclerView.setVisibility(VISIBLE);
     }
 
     @Override

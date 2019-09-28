@@ -26,9 +26,6 @@ From Android Studio:
 1. ***Build*** menu  
 2. ***Generate APK...***  
 
-## Running the tests
-
-No tests
 
 ## Built With
 

@@ -37,7 +37,6 @@ Filtering executes dynamically with every character that is input by user*/
 //TODO - Single activity + fragments
 //TODO - tests
 //TODO - design main recyclerview - сделай красоту в recyclerview
-//TODO - launch icon - need to fix
 
 //main activity with recyclerview and search box area
 public class MainActivity extends AppCompatActivity implements IMainActivity, SearchView.OnQueryTextListener {
